@@ -1,0 +1,41 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: service2
+  name: service2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: service2
+    spec:
+      containers:
+      - image: 253044336326.dkr.ecr.us-west-2.amazonaws.com/zi_service2:1.0.0-ZI.100
+        name: zi-service2
+        ports:
+        - containerPort: 9090
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: service2
+  name: service2
+spec:
+  ports:
+  - port: 9090
+    protocol: TCP
+    targetPort: 9090
+  selector:
+    app: service2
+status:
+  loadBalancer: {}

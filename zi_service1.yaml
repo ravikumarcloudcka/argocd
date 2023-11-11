@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: service1
+  name: service1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: service1
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: service1
+    spec:
+      containers:
+      - image: 253044336326.dkr.ecr.us-west-2.amazonaws.com/zi_service1:1.0.0-ZI.100
+        name: zi-service1-brf9s
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: service1
+  name: service1
+  namespace: default
+spec:
+  ports:
+  - nodePort: 31818
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: service1
+  type: NodePort
