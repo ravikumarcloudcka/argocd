@@ -32,7 +32,7 @@ metadata:
   namespace: argo
 spec:
   ports:
-  - nodePort: 31818
+  - nodePort: 31819
     port: 8080
     protocol: TCP
     targetPort: 8080
