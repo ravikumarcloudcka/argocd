@@ -19,7 +19,7 @@ spec:
         app: service2
     spec:
       containers:
-      - image: 253044336326.dkr.ecr.us-west-2.amazonaws.com/zi_service2:1.0.0-ZI.100
+      - image: 769187045176.dkr.ecr.us-west-1.amazonaws.com/zi_service2:latest
         name: zi-service2
         ports:
         - containerPort: 9090
