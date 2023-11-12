@@ -18,7 +18,7 @@ spec:
         app: service1
     spec:
       containers:
-      - image: 253044336326.dkr.ecr.us-west-2.amazonaws.com/zi_service1:1.0.0-ZI.100
+      - image: 769187045176.dkr.ecr.us-west-1.amazonaws.com/zi_service1:latest
         name: zi-service1-brf9s
         ports:
         - containerPort: 8080
